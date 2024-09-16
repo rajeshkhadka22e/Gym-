@@ -1,0 +1,56 @@
+{% extends "base.html" %}  {% block title %}Contact us{% endblock title %} 
+{% block hero %}
+<h1 class="text-danger">Contact us</h1>
+<br />
+<br />
+<form method="post">
+{% csrf_token %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong></strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+
+  <div class="form-group py-2">
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="fullname"
+      aria-describedby="emailHelp"
+      placeholder="Enter your Name"
+    />
+  </div>
+  <div class="form-group py-2">
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="email"
+      aria-describedby="emailHelp"
+      placeholder="Enter your Email"
+    />
+  </div>
+  <div class="form-group py-2">
+    <input
+      type="number"
+      class="form-control"
+      name="num"
+      id="exampleInputPassword1"
+      placeholder="Enter your phone number"
+    />
+  </div>
+  <label class="text-warning py-2 text-lg">Can i help you?</label>
+  <div class="form-control ">
+
+    
+    <textarea name="desc" class="form-control mt-2  " cols="5"  rows="3" id=""></textarea>
+</div>
+  <div class="d-grid py-2">
+    <button type="submit" class="btn btn-warning w-full">Submit</button>
+  </div>
+</form>
+
+{% endblock %}
